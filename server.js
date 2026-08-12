@@ -22,7 +22,7 @@ const MIME_TYPES = {
     '.ttf': 'font/ttf'
 };
 
-const server = http.createServer((req, res) => {
+function handleRequest(req, res) {
     let reqUrl = decodeURI(req.url.split('?')[0]);
     if (reqUrl === '/' || reqUrl === '') {
         reqUrl = '/index.html';
@@ -48,16 +48,21 @@ const server = http.createServer((req, res) => {
 
         res.writeHead(200, {
             'Content-Type': contentType,
-            'Cache-Control': 'no-cache, no-store, must-revalidate',
-            'Pragma': 'no-cache',
-            'Expires': '0'
+            'Cache-Control': 'public, max-age=3600'
         });
 
         const readStream = fs.createReadStream(filePath);
         readStream.pipe(res);
     });
-});
+}
 
-server.listen(PORT, '0.0.0.0', () => {
-    console.log(`Frontend server is running at http://localhost:${PORT}`);
-});
+const server = http.createServer(handleRequest);
+
+if (require.main === module) {
+    server.listen(PORT, '0.0.0.0', () => {
+        console.log(`Frontend server is running at http://localhost:${PORT}`);
+    });
+}
+
+module.exports = handleRequest;
+

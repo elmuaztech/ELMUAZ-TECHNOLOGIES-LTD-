@@ -1,0 +1,9 @@
+# Ignore local dev server so Vercel serves pure static site
+server.js
+dev-server.js
+*.docx
+docx_out/
+docx_extracted/
+temp_doc.zip
+extracted_text.txt
+*.log
