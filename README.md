@@ -23,7 +23,7 @@ To run locally using Node.js:
 
 ```bash
 # Start the local development server
-node server.js
+node local-server.js
 ```
 
 Then open **`http://localhost:3000`** in your browser.
