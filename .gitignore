@@ -1,0 +1,11 @@
+# Dependency and temporary files
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Document extraction scratch files
+docx_out/
+docx_extracted/
+temp_doc.zip
+extracted_text.txt
+*.log
