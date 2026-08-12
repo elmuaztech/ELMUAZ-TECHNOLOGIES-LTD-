@@ -9,3 +9,8 @@ docx_extracted/
 temp_doc.zip
 extracted_text.txt
 *.log
+
+# Local development server (prevent Vercel from mistaking project as Node.js backend)
+server.js
+local-server.js
+
